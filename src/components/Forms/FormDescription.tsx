@@ -1,16 +1,18 @@
-import { useState } from "react";
+type PropsType = {
+	description: string;
+	setDescription: (e: string) => void;
+};
 
-function FormDescription() {
-	const [description, setDescription] = useState<string>("");
+function FormDescription(props: PropsType) {
 	return (
 		<label className='opis'>
 			Nazwa
 			<input
 				type='text'
 				placeholder='Opis...'
-				value={description}
+				value={props.description}
 				onChange={(event) => {
-					setDescription(event.target.value);
+					props.setDescription(event.target.value);
 				}}></input>
 		</label>
 	);

@@ -1,16 +1,18 @@
-import { useState } from "react";
+type PropsType = {
+	price: number | undefined;
+	setPrice: (e: number) => void;
+};
 
-function FormPrice() {
-	const [price, setPrice] = useState<number>();
+function FormPrice(props: PropsType) {
 	return (
 		<label className='cena'>
 			Cena
 			<input
 				type='number'
-				value={price}
+				value={props.price}
 				onChange={(event) => {
 					const value = Number(event.target.value);
-					setPrice(value);
+					props.setPrice(value);
 				}}></input>
 		</label>
 	);

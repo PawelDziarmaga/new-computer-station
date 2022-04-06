@@ -6,8 +6,8 @@ interface AddAction {
 		id: number;
 		name: string;
 		description: string;
-		category: string;
-		price: number;
+		category: string | undefined;
+		price: number | undefined;
 	};
 }
 
@@ -22,8 +22,8 @@ interface EditAction {
 		id: number;
 		name: string;
 		description: string;
-		category: string;
-		price: number;
+		category: string | undefined;
+		price: number | undefined;
 	};
 }
 

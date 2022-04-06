@@ -6,8 +6,8 @@ type PayloadType = {
 	id: number;
 	name: string;
 	description: string;
-	category: string;
-	price: number;
+	category: string | undefined;
+	price: number | undefined;
 };
 
 export const addElement = (amount: PayloadType) => {

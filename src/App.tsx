@@ -5,6 +5,7 @@ import { store } from "./state";
 
 import Header from "./components/Header/Header";
 import Forms from "./components/Forms/Forms";
+import Tabels from "./components/Tabels/Tabels";
 
 import { createGlobalStyle } from "styled-components";
 
@@ -23,6 +24,7 @@ function App() {
 				<div className='App'>
 					<Header />
 					<Forms />
+					<Tabels />
 				</div>
 			</Provider>
 
