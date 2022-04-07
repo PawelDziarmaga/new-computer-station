@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Provider } from "react-redux";
-import { store } from "./state";
+import { store } from "./state/store";
 
 import Header from "./components/Header/Header";
 import Forms from "./components/Forms/Forms";

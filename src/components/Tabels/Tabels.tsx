@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-import { State } from "../../state/index";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
+import { removeElement } from "../../state/listSlice";
 
 import styled from "styled-components";
 const Div = styled.div`
@@ -10,47 +9,31 @@ const Div = styled.div`
 	font-size: 10px;
 `;
 
-type stateType = {
-	id: number;
-	name: string;
-	description: string;
-	category: string | undefined;
-	price: number | undefined;
-}[];
-
 function Tabels() {
-	const state: stateType = useSelector(
-		(state: State) => state.summaryReducer
-	);
-	const [elements, setElements] = useState<JSX.Element | JSX.Element[]>(
-		state.map((x) => {
-			return (
-				<Div key={x.id}>
-					<h2>{x.name}</h2>
-					<h2>{x.description}</h2>
-					<h2>{x.category}</h2>
-					<h2>{x.price}</h2>
-				</Div>
-			);
-		})
-	);
-	useEffect(() => {
-		setElements(
-			state.map((x) => {
-				return (
-					<Div key={x.id}>
-						<h2>{x.name}</h2>
-						<h2>{x.description}</h2>
-						<h2>{x.category}</h2>
-						<h2>{x.price}</h2>
-					</Div>
-				);
-			})
-		);
-	}, [state]);
+	const dispatch = useDispatch<AppDispatch>();
+	const state = useSelector((state: RootState) => state);
+
 	return (
 		<div className='header'>
-			<h1>{elements}</h1>
+			<h1>
+				{state
+					? state.map((x) => (
+							<Div key={x.id}>
+								<h2>{x.id}</h2>
+								<h2>{x.name}</h2>
+								<h2>{x.description}</h2>
+								<h2>{x.category}</h2>
+								<h2>{x.price}</h2>
+								<button
+									onClick={() => {
+										dispatch(removeElement(x.id));
+									}}>
+									usuń
+								</button>
+							</Div>
+					  ))
+					: null}
+			</h1>
 		</div>
 	);
 }

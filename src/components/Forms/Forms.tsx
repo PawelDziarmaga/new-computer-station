@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { actionCreators } from "../../state/index";
 import { useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
+import { AppDispatch } from "../../state/store";
+import { addElement } from "../../state/listSlice";
 
 import FormName from "./FormName";
 import FormDescription from "./FormDescription";
@@ -10,12 +10,11 @@ import FormChecBox from "./FormChecBox";
 import FormPrice from "./FormPrice";
 
 function Forms() {
-	const dispatch = useDispatch();
-	const { addElement } = bindActionCreators(actionCreators, dispatch);
+	const dispatch = useDispatch<AppDispatch>();
 
 	const [description, setDescription] = useState<string>("");
 	const [name, setName] = useState<string>("");
-	const [price, setPrice] = useState<number>();
+	const [price, setPrice] = useState<number>(0);
 	const [category, setCategory] = useState<string>();
 
 	const addHendler = () => {
@@ -28,13 +27,13 @@ function Forms() {
 		setCategory("");
 
 		const newElement = {
-			id: 4,
+			id: 5,
 			name,
 			description,
 			category,
 			price,
 		};
-		addElement(newElement);
+		dispatch(addElement(newElement));
 	};
 
 	return (

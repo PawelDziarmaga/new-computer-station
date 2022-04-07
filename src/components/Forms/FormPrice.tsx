@@ -1,5 +1,5 @@
 type PropsType = {
-	price: number | undefined;
+	price: number;
 	setPrice: (e: number) => void;
 };
 
@@ -11,8 +11,7 @@ function FormPrice(props: PropsType) {
 				type='number'
 				value={props.price}
 				onChange={(event) => {
-					const value = Number(event.target.value);
-					props.setPrice(value);
+					props.setPrice(event.target.valueAsNumber);
 				}}></input>
 		</label>
 	);
