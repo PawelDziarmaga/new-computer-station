@@ -1,12 +1,16 @@
+//Import style
+import { Label } from "../FormStyle";
+
 type PropsType = {
+	validationName: boolean;
 	name: string;
 	setName: (e: string) => void;
 };
 
 function FormName(props: PropsType) {
 	return (
-		<label className='nazwa'>
-			Nazwa
+		<Label empty={props.validationName} className='nazwa'>
+			<h3>Nazwa:</h3>
 			<input
 				type='text'
 				placeholder='Nazwa...'
@@ -14,7 +18,7 @@ function FormName(props: PropsType) {
 				onChange={(event) => {
 					props.setName(event.target.value);
 				}}></input>
-		</label>
+		</Label>
 	);
 }
 

@@ -1,3 +1,6 @@
+//Import style
+import { Label } from "../FormStyle";
+
 type PropsType = {
 	price: number;
 	setPrice: (e: number) => void;
@@ -5,15 +8,17 @@ type PropsType = {
 
 function FormPrice(props: PropsType) {
 	return (
-		<label className='cena'>
-			Cena
+		<Label empty={true} className='cena'>
+			<h3>Cena</h3>
 			<input
 				type='number'
 				value={props.price}
 				onChange={(event) => {
-					props.setPrice(event.target.valueAsNumber);
+					if (event.target.valueAsNumber >= 0) {
+						props.setPrice(event.target.valueAsNumber);
+					}
 				}}></input>
-		</label>
+		</Label>
 	);
 }
 
