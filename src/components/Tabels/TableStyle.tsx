@@ -17,17 +17,36 @@ export const Table = styled.table`
 			border: none;
 		}
 		.first-row {
-			width: 30%;
+			width: 25%;
 		}
 		.second-row {
 			width: 50%;
 		}
 		.third-row {
-			width: 10%;
+			width: 5%;
+			input {
+				width: 100%;
+				border: 1px solid lightgrey;
+				padding: 2px;
+			}
 		}
 		.fourths-row {
+			width: 15%;
+			text-align: center;
+			cursor: pointer;
+		}
+		.fifth-row {
 			width: 5%;
 			text-align: center;
+			cursor: pointer;
+		}
+		.btn {
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			text-align: center;
+			border: 1px solid lightgrey;
+			margin: 1px;
 			cursor: pointer;
 		}
 	}

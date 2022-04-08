@@ -1,7 +1,7 @@
 import { useState } from "react";
 //Import Redux and store and action
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../state/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
 import { addElement } from "../../state/listSlice";
 //Import style
 import { Form, Button } from "./FormStyle";
@@ -10,8 +10,6 @@ import FormName from "./components/FormName";
 import FormDescription from "./components/FormDescription";
 import FormChecBox from "./components/FormChecBox";
 import FormPrice from "./components/FormPrice";
-
-let id: number = 0;
 
 function Forms() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -31,7 +29,6 @@ function Forms() {
 		} else {
 			setValidationName(true);
 		}
-		console.log(validationCate);
 		if (!category) {
 			setValidationCate(false);
 		} else {
@@ -44,6 +41,18 @@ function Forms() {
 		}
 	};
 
+	//Generate unique ID
+	const listState = useSelector((state: RootState) => state.listSlice);
+	let id = 0;
+	const generateId = () => {
+		let ids: number[] = [];
+		listState.forEach((element) => {
+			ids.push(element.id);
+		});
+		do {
+			id++;
+		} while (ids.indexOf(id) > 0);
+	};
 	const addHendler = () => {
 		tableValidation();
 		if (description.length < 5 || name.length < 3 || !category) {
@@ -53,16 +62,16 @@ function Forms() {
 		setName("");
 		setPrice(0);
 		setCategory("");
-
+		generateId();
 		const newElement = {
 			id,
 			name,
 			description,
 			category,
 			price,
+			qty: 1,
 		};
 		dispatch(addElement(newElement));
-		id++;
 	};
 
 	return (
