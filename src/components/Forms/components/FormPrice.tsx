@@ -12,12 +12,13 @@ function FormPrice(props: PropsType) {
 			<h3>Cena</h3>
 			<input
 				type='number'
-				value={props.price}
+				value={props.price === 0 ? "" : props.price}
 				onChange={(event) => {
 					if (event.target.valueAsNumber >= 0) {
 						props.setPrice(event.target.valueAsNumber);
 					}
 				}}></input>
+			<span>zł</span>
 		</Label>
 	);
 }

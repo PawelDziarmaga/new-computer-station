@@ -1,9 +1,14 @@
+import { useState } from "react";
+
 //Import Redux and store and action
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../state/store";
-import { removeElement } from "../../../state/listSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../../../state/store";
+import { removeCategory } from "../../../state/categorySlice";
+
+//Import components
+import FormEditCategory from "./FormEditCategory";
 //Import style
-import { Categorylabel } from "../FormStyle";
+import { Categorylabel, SmallButton, MiniButton } from "../FormStyle";
 
 type PropsType = {
 	validationCate: boolean;
@@ -12,8 +17,10 @@ type PropsType = {
 };
 
 function FormChecBox(props: PropsType) {
-	const dispatch = useDispatch<AppDispatch>();
+	const [edit, setEdit] = useState<Boolean>(false);
+
 	const state = useSelector((state: RootState) => state.categorySlice);
+	const dispatch = useDispatch<AppDispatch>();
 
 	const handleChange = (e: string) => {
 		props.setCategory(e);
@@ -33,8 +40,27 @@ function FormChecBox(props: PropsType) {
 							handleChange(e.target.value);
 						}}></input>
 					{element}
+					{edit ? (
+						<MiniButton
+							onClick={(e) => {
+								e.preventDefault();
+								dispatch(removeCategory(element));
+							}}>
+							X
+						</MiniButton>
+					) : null}
 				</label>
 			))}
+			<div>
+				<SmallButton
+					onClick={(e) => {
+						e.preventDefault();
+						setEdit(!edit);
+					}}>
+					{edit ? "Zamknij " : "Edytuj"}
+				</SmallButton>
+				{edit ? <FormEditCategory /> : null}
+			</div>
 		</Categorylabel>
 	);
 }

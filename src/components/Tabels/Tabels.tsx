@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
 import { removeElement, addQuantity, subQuantity } from "../../state/listSlice";
 //Import style
-import { Table } from "./TableStyle";
+import { Table, Div } from "./TableStyle";
+import { MiniButton, SmallButton } from "../Forms/FormStyle";
 
 function Tabels() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -26,7 +27,7 @@ function Tabels() {
 				sumQty += suma.qty;
 			});
 		return listState.filter((x) => x.category === category).length ? (
-			<table key={category}>
+			<Table key={category}>
 				<thead key={category}>
 					<tr>
 						<th className='table-name' colSpan={4}>
@@ -57,16 +58,17 @@ function Tabels() {
 									<td className='third-row'>
 										{element.qty}
 
-										<span
+										<MiniButton
 											className='btn'
-											onClick={(e) =>
+											onClick={(e) => {
+												console.log(element.id);
 												dispatch(
 													subQuantity(element.id)
-												)
-											}>
+												);
+											}}>
 											-
-										</span>
-										<span
+										</MiniButton>
+										<MiniButton
 											className='btn'
 											onClick={(e) =>
 												dispatch(
@@ -74,17 +76,17 @@ function Tabels() {
 												)
 											}>
 											+
-										</span>
+										</MiniButton>
 									</td>
 									<td className='fourths-row'>
-										{element.price}
+										{element.price} zł
 									</td>
 									<td
 										className='fifth-row'
 										onClick={(e) =>
 											dispatch(removeElement(element.id))
 										}>
-										usuń
+										<SmallButton>Usuń</SmallButton>
 									</td>
 								</tr>
 							);
@@ -96,15 +98,15 @@ function Tabels() {
 						<th className='first-row'></th>
 						<th className='second-row'></th>
 						<th className='third-row'>{sumQty}</th>
-						<th className='fourths-row'>{sumPrice}</th>
+						<th className='fourths-row'>{sumPrice} zł</th>
 						<th className='fifth-row'></th>
 					</tr>
 				</tfoot>
-			</table>
+			</Table>
 		) : null;
 	});
 
-	return <Table>{tableCategory}</Table>;
+	return <Div>{tableCategory}</Div>;
 }
 
 export default Tabels;

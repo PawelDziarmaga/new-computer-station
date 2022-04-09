@@ -49,9 +49,8 @@ function Forms() {
 		listState.forEach((element) => {
 			ids.push(element.id);
 		});
-		do {
-			id++;
-		} while (ids.indexOf(id) > 0);
+		ids.sort((a, b) => b - a);
+		id = ids[0] ? ids[0] + 1 : id + 1;
 	};
 	const addHendler = () => {
 		tableValidation();
@@ -81,17 +80,18 @@ function Forms() {
 				name={name}
 				setName={setName}
 			/>
-			<FormChecBox
-				validationCate={validationCate}
-				category={category}
-				setCategory={setCategory}
-			/>
+			<FormPrice price={price} setPrice={setPrice} />
 			<FormDescription
 				validationDesc={validationDesc}
 				description={description}
 				setDescription={setDescription}
 			/>
-			<FormPrice price={price} setPrice={setPrice} />
+			<FormChecBox
+				validationCate={validationCate}
+				category={category}
+				setCategory={setCategory}
+			/>
+
 			<Button
 				onClick={(e) => {
 					e.preventDefault();

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Form = styled.form`
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
+	align-items: stretch;
 	flex-wrap: wrap;
 	width: 75%;
 	margin: 0 auto;
@@ -17,7 +17,8 @@ export const Label = styled.label<{ empty: boolean }>`
 	border: 1px solid lightgrey;
 	color: grey;
 	width: 45%;
-	h3 {
+	span {
+		margin-left: 10px;
 	}
 	input {
 		padding-left: 10px;
@@ -45,7 +46,6 @@ export const DescriptionLabel = styled.label<{ empty: boolean }>`
 	}
 	textarea {
 		padding-left: 10px;
-
 		height: 90px;
 		width: 80%;
 		color: grey;
@@ -66,7 +66,7 @@ export const Categorylabel = styled.label<{ empty: boolean }>`
 	border: 1px solid ${(props) => (props.empty ? "lightgrey" : "red")};
 	color: grey;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	flex-wrap: wrap;
 	width: 45%;
 	h3 {
@@ -88,6 +88,34 @@ export const Button = styled.button`
 	height: 50px;
 	width: 200px;
 	border-radius: 5px;
+	box-shadow: none;
+	border: 1px solid grey;
+	&:hover {
+		box-shadow: 0 0 4px grey;
+	}
+`;
+export const SmallButton = styled.button`
+	margin: 0;
+	background-color: white;
+	color: grey;
+	font-size: 15px;
+	height: 30px;
+	padding: 0 5px;
+	border-radius: 5px;
+	box-shadow: none;
+	border: 1px solid grey;
+	&:hover {
+		box-shadow: 0 0 3px grey;
+	}
+`;
+export const MiniButton = styled.button`
+	margin-left: 5px;
+	background-color: white;
+	color: grey;
+	font-size: 10px;
+	height: 15px;
+	width: 15px;
+	border-radius: 4px;
 	box-shadow: none;
 	border: 1px solid grey;
 	&:hover {
