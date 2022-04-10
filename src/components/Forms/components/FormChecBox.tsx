@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../../state/store";
 import { removeCategory } from "../../../state/categorySlice";
+import { removeElement } from "../../../state/listSlice";
 
 //Import components
 import FormEditCategory from "./FormEditCategory";
@@ -20,10 +21,19 @@ function FormChecBox(props: PropsType) {
 	const [edit, setEdit] = useState<Boolean>(false);
 
 	const state = useSelector((state: RootState) => state.categorySlice);
+	const listState = useSelector((state: RootState) => state.listSlice);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const handleChange = (e: string) => {
 		props.setCategory(e);
+	};
+
+	const removeElementsOfCategory = (category: string) => {
+		listState
+			.filter((x) => x.category === category)
+			.forEach((element) => {
+				dispatch(removeElement(element.id));
+			});
 	};
 
 	return (
@@ -44,6 +54,7 @@ function FormChecBox(props: PropsType) {
 						<MiniButton
 							onClick={(e) => {
 								e.preventDefault();
+								removeElementsOfCategory(element);
 								dispatch(removeCategory(element));
 							}}>
 							X

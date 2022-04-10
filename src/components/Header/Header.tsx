@@ -8,7 +8,12 @@ const Div = styled.div`
 	align-items: center;
 
 	h1 {
+		background-color: #ffffffcc;
+		box-shadow: 0 0 5px lightgrey;
+		padding: 10px;
+		border-radius: 5px;
 		color: grey;
+		text-align: center;
 	}
 `;
 function Header() {

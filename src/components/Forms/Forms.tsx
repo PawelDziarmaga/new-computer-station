@@ -24,7 +24,7 @@ function Forms() {
 	const [validationCate, setValidationCate] = useState<boolean>(true);
 	const [validationDesc, setValidationDesc] = useState<boolean>(true);
 	const tableValidation = () => {
-		if (name.length < 3) {
+		if (name.length < 1) {
 			setValidationName(false);
 		} else {
 			setValidationName(true);
@@ -34,7 +34,7 @@ function Forms() {
 		} else {
 			setValidationCate(true);
 		}
-		if (description.length < 5) {
+		if (description.length < 1) {
 			setValidationDesc(false);
 		} else {
 			setValidationDesc(true);
@@ -54,7 +54,7 @@ function Forms() {
 	};
 	const addHendler = () => {
 		tableValidation();
-		if (description.length < 5 || name.length < 3 || !category) {
+		if (description.length < 1 || name.length < 1 || !category) {
 			return;
 		}
 		setDescription("");

@@ -21,16 +21,15 @@ function FormEditCategory() {
 						setNewCategory(event.target.value);
 					}}></input>
 			</Label>
-			<div className='btn-container'>
-				<SmallButton
-					onClick={(e) => {
-						e.preventDefault();
-						dispatch(addCategory(newCategory));
-						setNewCategory("");
-					}}>
-					Dodaj
-				</SmallButton>
-			</div>
+
+			<SmallButton
+				onClick={(e) => {
+					e.preventDefault();
+					dispatch(addCategory(newCategory));
+					setNewCategory("");
+				}}>
+				Dodaj
+			</SmallButton>
 		</div>
 	);
 }

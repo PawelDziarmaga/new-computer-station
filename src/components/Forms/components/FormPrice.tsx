@@ -15,7 +15,9 @@ function FormPrice(props: PropsType) {
 				value={props.price === 0 ? "" : props.price}
 				onChange={(event) => {
 					if (event.target.valueAsNumber >= 0) {
-						props.setPrice(event.target.valueAsNumber);
+						const value =
+							Math.ceil(event.target.valueAsNumber * 100) / 100;
+						props.setPrice(value);
 					}
 				}}></input>
 			<span>zł</span>

@@ -16,6 +16,7 @@ function Tabels() {
 	const categorySlice = useSelector(
 		(state: RootState) => state.categorySlice
 	);
+
 	//Create table
 	const tableCategory = categorySlice.map((category) => {
 		//Price counter
@@ -32,6 +33,7 @@ function Tabels() {
 			.forEach((suma) => {
 				sumQty += suma.qty;
 			});
+
 		//Crrate tables for all category
 		return listState.filter((x) => x.category === category).length ? (
 			<Table id={category} key={category}>
@@ -69,7 +71,6 @@ function Tabels() {
 										<MiniButton
 											className='btn'
 											onClick={(e) => {
-												console.log(element.id);
 												dispatch(
 													subQuantity(element.id)
 												);
@@ -105,8 +106,12 @@ function Tabels() {
 					<tr>
 						<th className='first-row'></th>
 						<th className='second-row'></th>
-						<th className='third-row'>{sumQty} szt.</th>
-						<th className='fourths-row'>{sumPrice} zł</th>
+						<th className='third-row'>
+							{Math.ceil(sumQty * 100) / 100} szt.
+						</th>
+						<th className='fourths-row'>
+							{Math.ceil(sumPrice * 100) / 100} zł
+						</th>
 						<th className='fifth-row'></th>
 					</tr>
 				</tfoot>

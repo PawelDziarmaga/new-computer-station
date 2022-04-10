@@ -17,8 +17,7 @@ const Tr = styled.tr`
 	}
 `;
 function TablesSum() {
-	//Redux
-
+	//Redux state import
 	const listState = useSelector((state: RootState) => state.listSlice);
 	let sumPrice: number = 0;
 	listState.forEach((suma) => {
@@ -31,13 +30,21 @@ function TablesSum() {
 
 	return (
 		<Table>
-			<Tr>
-				<th className='first-row'></th>
-				<th className='second-row'>Podsumowanie:</th>
-				<th className='third-row'>{sumQty} szt.</th>
-				<th className='fourths-row'>{sumPrice} zł</th>
-				<th className='fifth-row'></th>
-			</Tr>
+			{sumQty !== 0 ? (
+				<tbody>
+					<Tr>
+						<th className='first-row'></th>
+						<th className='second-row'>Podsumowanie:</th>
+						<th className='third-row'>
+							{Math.ceil(sumQty * 100) / 100} szt.
+						</th>
+						<th className='fourths-row'>
+							{Math.ceil(sumPrice * 100) / 100} zł
+						</th>
+						<th className='fifth-row'></th>
+					</Tr>
+				</tbody>
+			) : null}
 		</Table>
 	);
 }

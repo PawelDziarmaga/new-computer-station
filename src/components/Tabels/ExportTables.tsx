@@ -6,7 +6,12 @@ import pdf from "../../icons/pdf.png";
 //Import style
 import { SmallButton } from "../Forms/FormStyle";
 import styled from "styled-components";
+import { useEffect } from "react";
 const Div = styled.div`
+	background-color: #ffffffcc;
+	box-shadow: 0 0 5px lightgrey;
+	padding: 10px;
+	border-radius: 5px;
 	width: 50%;
 	margin: 0 auto;
 	height: 10vh;
@@ -24,6 +29,12 @@ const Div = styled.div`
 `;
 function ExortTables() {
 	let htmltable = document.getElementById("table_Container");
+
+	useEffect(() => {
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		htmltable = document.getElementById("table_Container");
+	});
+
 	const ExportTablesExcel = () => {
 		const html = htmltable ? htmltable.outerHTML : null;
 		if (html) {
@@ -33,9 +44,7 @@ function ExortTables() {
 		}
 	};
 	const ExportTablesPDF = () => {
-		console.log("dupa");
 		const pdf = new jsPDF("l", "pt", "A3");
-		pdf.setFontSize(5);
 
 		if (htmltable) {
 			pdf.html(htmltable, {

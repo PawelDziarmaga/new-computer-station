@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
+	background-color: #ffffffcc;
+	box-shadow: 0 0 5px lightgrey;
+	padding: 10px;
+	border-radius: 5px;
 	color: grey;
 	display: flex;
 	justify-content: space-around;
@@ -46,6 +50,9 @@ export const Label = styled.label<{ empty: boolean }>`
 			border: 2px solid black;
 			background-color: #ffffff66;
 		}
+		@media (max-width: 400px) {
+			width: 100%;
+		}
 	}
 `;
 export const DescriptionLabel = styled.label<{ empty: boolean }>`
@@ -77,7 +84,9 @@ export const Categorylabel = styled.label<{ empty: boolean }>`
 	display: flex;
 	justify-content: left;
 	flex-wrap: wrap;
-
+	@media (max-width: 420px) {
+		justify-content: center;
+	}
 	h3 {
 		width: 100%;
 	}
@@ -87,6 +96,9 @@ export const Categorylabel = styled.label<{ empty: boolean }>`
 		margin: 0;
 		input {
 			margin-right: 5px;
+		}
+		@media (max-width: 420px) {
+			width: 80%;
 		}
 	}
 	.btn-container {

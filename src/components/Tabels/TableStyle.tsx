@@ -51,6 +51,10 @@ export const Table = styled.table`
 	}
 `;
 export const Div = styled.div`
+	background-color: #ffffffcc;
+	box-shadow: 0 0 5px lightgrey;
+	padding: 10px;
+	border-radius: 5px;
 	width: 90%;
-	margin: 0 auto;
+	margin: 10px auto;
 `;
