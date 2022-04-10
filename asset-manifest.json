@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/new-computer-station/static/js/main.efbdac4a.js",
+    "main.js": "/new-computer-station/static/js/main.a2471eac.js",
     "static/js/498.4642f3bd.chunk.js": "/new-computer-station/static/js/498.4642f3bd.chunk.js",
     "static/js/703.2c6c798f.chunk.js": "/new-computer-station/static/js/703.2c6c798f.chunk.js",
     "static/js/314.5271c763.chunk.js": "/new-computer-station/static/js/314.5271c763.chunk.js",
@@ -8,13 +8,13 @@
     "static/media/paint-g997428b64_1920.jpg": "/new-computer-station/static/media/paint-g997428b64_1920.9812b7be5086d6f09d2a.jpg",
     "static/media/excel.png": "/new-computer-station/static/media/excel.f7ad53809690a1807fa6.png",
     "index.html": "/new-computer-station/index.html",
-    "main.efbdac4a.js.map": "/new-computer-station/static/js/main.efbdac4a.js.map",
+    "main.a2471eac.js.map": "/new-computer-station/static/js/main.a2471eac.js.map",
     "498.4642f3bd.chunk.js.map": "/new-computer-station/static/js/498.4642f3bd.chunk.js.map",
     "703.2c6c798f.chunk.js.map": "/new-computer-station/static/js/703.2c6c798f.chunk.js.map",
     "314.5271c763.chunk.js.map": "/new-computer-station/static/js/314.5271c763.chunk.js.map",
     "787.2064d2dd.chunk.js.map": "/new-computer-station/static/js/787.2064d2dd.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.efbdac4a.js"
+    "static/js/main.a2471eac.js"
   ]
 }
