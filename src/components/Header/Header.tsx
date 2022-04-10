@@ -14,7 +14,7 @@ const Div = styled.div`
 function Header() {
 	return (
 		<Div className='header'>
-			<h1>New computer station</h1>
+			<h1>Nowe stanowisko komputerowe</h1>
 		</Div>
 	);
 }

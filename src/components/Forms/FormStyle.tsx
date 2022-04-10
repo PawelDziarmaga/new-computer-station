@@ -89,7 +89,8 @@ export const Button = styled.button`
 	width: 200px;
 	border-radius: 5px;
 	box-shadow: none;
-	border: 1px solid grey;
+	border: 1px solid lightgrey;
+	cursor: pointer;
 	&:hover {
 		box-shadow: 0 0 4px grey;
 	}
@@ -103,7 +104,8 @@ export const SmallButton = styled.button`
 	padding: 0 5px;
 	border-radius: 5px;
 	box-shadow: none;
-	border: 1px solid grey;
+	border: 1px solid lightgrey;
+	cursor: pointer;
 	&:hover {
 		box-shadow: 0 0 3px grey;
 	}
@@ -117,7 +119,8 @@ export const MiniButton = styled.button`
 	width: 15px;
 	border-radius: 4px;
 	box-shadow: none;
-	border: 1px solid grey;
+	border: 1px solid lightgrey;
+	cursor: pointer;
 	&:hover {
 		box-shadow: 0 0 2px grey;
 	}

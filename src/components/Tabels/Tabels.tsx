@@ -5,29 +5,36 @@ import { removeElement, addQuantity, subQuantity } from "../../state/listSlice";
 //Import style
 import { Table, Div } from "./TableStyle";
 import { MiniButton, SmallButton } from "../Forms/FormStyle";
+//Import components
+import ExortTables from "./ExportTables";
+import TablesSum from "./TablesSum";
 
 function Tabels() {
+	//Redux
 	const dispatch = useDispatch<AppDispatch>();
 	const listState = useSelector((state: RootState) => state.listSlice);
 	const categorySlice = useSelector(
 		(state: RootState) => state.categorySlice
 	);
-
+	//Create table
 	const tableCategory = categorySlice.map((category) => {
+		//Price counter
 		let sumPrice: number = 0;
 		listState
 			.filter((x) => x.category === category)
 			.forEach((suma) => {
 				sumPrice = sumPrice + suma.price * suma.qty;
 			});
+		//Qty counter
 		let sumQty: number = 0;
 		listState
 			.filter((x) => x.category === category)
 			.forEach((suma) => {
 				sumQty += suma.qty;
 			});
+		//Crrate tables for all category
 		return listState.filter((x) => x.category === category).length ? (
-			<Table key={category}>
+			<Table id={category} key={category}>
 				<thead key={category}>
 					<tr>
 						<th className='table-name' colSpan={4}>
@@ -44,6 +51,7 @@ function Tabels() {
 				</thead>
 
 				<tbody>
+					{/*Crrate elements for all tables*/}
 					{listState
 						.filter((x) => x.category === category)
 						.map((element) => {
@@ -97,7 +105,7 @@ function Tabels() {
 					<tr>
 						<th className='first-row'></th>
 						<th className='second-row'></th>
-						<th className='third-row'>{sumQty}</th>
+						<th className='third-row'>{sumQty} szt.</th>
 						<th className='fourths-row'>{sumPrice} zł</th>
 						<th className='fifth-row'></th>
 					</tr>
@@ -106,7 +114,15 @@ function Tabels() {
 		) : null;
 	});
 
-	return <Div>{tableCategory}</Div>;
+	return (
+		<div>
+			<Div id='table_Container'>
+				{tableCategory} <TablesSum />
+			</Div>
+
+			<ExortTables />
+		</div>
+	);
 }
 
 export default Tabels;

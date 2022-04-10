@@ -16,32 +16,23 @@ export const Table = styled.table`
 		color: grey;
 	}
 	.first-row {
-		width: 25%;
+		width: 20%;
 	}
 	.second-row {
-		width: 50%;
+		width: 45%;
 	}
 	.third-row {
-		width: 8%;
+		width: 9%;
 		text-align: center;
 	}
 	.fourths-row {
 		width: 15%;
 		text-align: center;
-		cursor: pointer;
 	}
 	.fifth-row {
-		width: 5%;
-		text-align: center;
-		cursor: pointer;
-	}
-	.btn {
-		display: inline-block;
-		height: 20px;
-		width: 20px;
-		text-align: center;
-		border: 1px solid lightgrey;
-		margin: 1px;
+		border: none;
+		width: 7%;
+		text-align: left;
 		cursor: pointer;
 	}
 `;
