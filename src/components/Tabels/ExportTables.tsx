@@ -13,7 +13,7 @@ const Div = styled.div`
 	padding: 10px;
 	border-radius: 5px;
 	width: 50%;
-	margin: 0 auto;
+	margin: 10px auto;
 	height: 10vh;
 	display: flex;
 	flex-wrap: wrap;

@@ -121,9 +121,11 @@ function Tabels() {
 
 	return (
 		<div>
-			<Div id='table_Container'>
-				{tableCategory} <TablesSum />
-			</Div>
+			{listState.length > 0 ? (
+				<Div id='table_Container'>
+					{tableCategory} <TablesSum />
+				</Div>
+			) : null}
 
 			<ExortTables />
 		</div>
