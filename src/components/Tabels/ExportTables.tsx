@@ -4,18 +4,22 @@ import jsPDF from "jspdf";
 import excel from "../../icons/excel.png";
 import pdf from "../../icons/pdf.png";
 //Import style
-import { MiniButton, SmallButton } from "../Forms/FormStyle";
+import { SmallButton } from "../Forms/FormStyle";
 import styled from "styled-components";
 const Div = styled.div`
 	width: 50%;
 	margin: 0 auto;
 	height: 10vh;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 	img {
 		height: 15px;
 		margin-left: 10px;
+	}
+	@media (max-width: 800px) {
+		width: 80%;
 	}
 `;
 function ExortTables() {

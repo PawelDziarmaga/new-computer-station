@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
+	color: grey;
 	display: flex;
 	justify-content: space-around;
 	align-items: stretch;
@@ -9,14 +10,23 @@ export const Form = styled.form`
 	margin: 0 auto;
 	label {
 		margin: 2px;
+		width: 48%;
 		padding: 10px;
+		@media (max-width: 850px) {
+			width: 95%;
+		}
+	}
+	@media (max-width: 1100px) {
+		width: 90%;
+	}
+	@media (max-width: 850px) {
+		width: 95%;
 	}
 `;
 
 export const Label = styled.label<{ empty: boolean }>`
 	border: 1px solid lightgrey;
-	color: grey;
-	width: 45%;
+
 	span {
 		margin-left: 10px;
 	}
@@ -24,7 +34,7 @@ export const Label = styled.label<{ empty: boolean }>`
 		padding-left: 10px;
 		height: 30px;
 		width: 250px;
-		color: grey;
+
 		background-color: white;
 		border: 1px solid ${(props) => (props.empty ? "grey" : "red")};
 		border-radius: 3px;
@@ -41,7 +51,6 @@ export const Label = styled.label<{ empty: boolean }>`
 export const DescriptionLabel = styled.label<{ empty: boolean }>`
 	border: 1px solid lightgrey;
 	color: grey;
-	width: 45%;
 	h3 {
 	}
 	textarea {
@@ -68,16 +77,20 @@ export const Categorylabel = styled.label<{ empty: boolean }>`
 	display: flex;
 	justify-content: left;
 	flex-wrap: wrap;
-	width: 45%;
+
 	h3 {
 		width: 100%;
 	}
 	label {
 		border: none;
-		width: 45%;
+		width: 50%;
+		margin: 0;
 		input {
 			margin-right: 5px;
 		}
+	}
+	.btn-container {
+		width: 100%;
 	}
 `;
 export const Button = styled.button`

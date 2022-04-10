@@ -4,7 +4,9 @@ export const Table = styled.table`
 	width: 100%;
 	margin: 10px auto;
 	border-collapse: collapse;
-
+	@media (max-width: 500px) {
+		font-size: 10px;
+	}
 	td,
 	th {
 		border: 1px solid lightgrey;
@@ -17,13 +19,25 @@ export const Table = styled.table`
 	}
 	.first-row {
 		width: 20%;
+		@media (max-width: 500px) {
+			width: 10%;
+		}
 	}
 	.second-row {
 		width: 45%;
+		@media (max-width: 500px) {
+			width: 30%;
+		}
 	}
 	.third-row {
 		width: 9%;
 		text-align: center;
+		@media (max-width: 750px) {
+			width: 15%;
+		}
+		@media (max-width: 500px) {
+			width: 20%;
+		}
 	}
 	.fourths-row {
 		width: 15%;

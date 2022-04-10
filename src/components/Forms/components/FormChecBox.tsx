@@ -51,7 +51,7 @@ function FormChecBox(props: PropsType) {
 					) : null}
 				</label>
 			))}
-			<div>
+			<div className='btn-container'>
 				<SmallButton
 					onClick={(e) => {
 						e.preventDefault();
